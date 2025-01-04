@@ -1,0 +1,160 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "devdatafactorygeekcoders"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
+		},
+		"Sink_AzureDataLakeStorage_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'Sink_AzureDataLakeStorage'"
+		},
+		"Source_Snowflake_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Source_Snowflake'"
+		},
+		"AzureBlobStorage_sasUri": {
+			"type": "secureString",
+			"metadata": "Secure string for 'sasUri' of 'AzureBlobStorage'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://proggen2geekcoders.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://proggen2geekcoders.dfs.core.windows.net/"
+		},
+		"AzureKeyVault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://devvaultgeekcoders.vault.azure.net/"
+		},
+		"SRC_AzureDataLakeStorage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sourcegen2geekcoders.dfs.core.windows.net/"
+		},
+		"SRC_AzureDataLakeStorage_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "7e981f09-7653-46a3-9089-57f571d7ec3f"
+		},
+		"SRC_AzureDataLakeStorage_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "916492ca-6a50-40cf-b273-6081d781123e"
+		},
+		"Sink_AzureDataLakeStorage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://devgen2geekcoders.dfs.core.windows.net/"
+		},
+		"Source_API_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://countryapi.io/api/all"
+		},
+		"Source_Snowflake_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "SRC_GEEKCODERS"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "devdatafactorygeekcoders_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"AzureDataLakeStorage2_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
+					},
+					"Sink_AzureDataLakeStorage_accountKey": {
+						"value": "[parameters('Sink_AzureDataLakeStorage_accountKey')]"
+					},
+					"Source_Snowflake_password": {
+						"value": "[parameters('Source_Snowflake_password')]"
+					},
+					"AzureBlobStorage_sasUri": {
+						"value": "[parameters('AzureBlobStorage_sasUri')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage2_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]"
+					},
+					"AzureKeyVault_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault_properties_typeProperties_baseUrl')]"
+					},
+					"Sink_AzureDataLakeStorage_properties_typeProperties_url": {
+						"value": "[parameters('Sink_AzureDataLakeStorage_properties_typeProperties_url')]"
+					},
+					"SRC_AzureDataLakeStorage_properties_typeProperties_url": {
+						"value": "[parameters('SRC_AzureDataLakeStorage_properties_typeProperties_url')]"
+					},
+					"SRC_AzureDataLakeStorage_properties_typeProperties_tenant": {
+						"value": "[parameters('SRC_AzureDataLakeStorage_properties_typeProperties_tenant')]"
+					},
+					"SRC_AzureDataLakeStorage_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('SRC_AzureDataLakeStorage_properties_typeProperties_servicePrincipalId')]"
+					},
+					"Source_API_properties_typeProperties_url": {
+						"value": "[parameters('Source_API_properties_typeProperties_url')]"
+					},
+					"Source_Snowflake_properties_typeProperties_database": {
+						"value": "[parameters('Source_Snowflake_properties_typeProperties_database')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "devdatafactorygeekcoders_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'devdatafactorygeekcoders_ArmTemplate_0')]"
+			]
+		}
+	]
+}
