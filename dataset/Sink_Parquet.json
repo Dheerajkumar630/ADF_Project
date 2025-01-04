@@ -1,0 +1,46 @@
+{
+	"name": "Sink_Parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Sink_AzureDataLakeStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Teams.Parquet",
+				"folderPath": {
+					"value": "@concat('snowflake/Date_Part=',formatDateTime(utcnow(),'yyyy-MM-dd'))",
+					"type": "Expression"
+				},
+				"fileSystem": "olympicdata"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "Discipline",
+				"type": "UTF8"
+			},
+			{
+				"name": "Female",
+				"type": "INT_64"
+			},
+			{
+				"name": "Male",
+				"type": "INT_64"
+			},
+			{
+				"name": "Total",
+				"type": "INT_64"
+			},
+			{
+				"name": "Date_Part",
+				"type": "UTF8"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

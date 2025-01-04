@@ -1,0 +1,19 @@
+{
+	"name": "sink_metadata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Sink_AzureDataLakeStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "Gen2",
+				"fileSystem": "olympicdata"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

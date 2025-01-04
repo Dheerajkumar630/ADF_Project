@@ -1,0 +1,24 @@
+{
+	"name": "Sink_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Sink_AzureDataLakeStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "countries.json",
+				"folderPath": {
+					"value": "@concat('RestApi/Date_Part=',formatDateTime(utcnow(),'yyyy-MM-dd'))",
+					"type": "Expression"
+				},
+				"fileSystem": "olympicdata"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

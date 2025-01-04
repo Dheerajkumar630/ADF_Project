@@ -1,0 +1,9 @@
+{
+	"name": "devdatafactorygeekcoders",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7b5f1e93-f320-4326-8c5d-e1d648f2fb29",
+		"tenantId": "7e981f09-7653-46a3-9089-57f571d7ec3f"
+	}
+}
